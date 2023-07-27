@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}To-Do Lists{% endblock %}</title>
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+</head>
+    <body>
+
+
+
+
+        <h4>Comments</h4>
+        {% for comment in todo.all %}
+            <p>{{ comment.author }} &middot; {{ comment }}</p>
+        {% endfor %}
+        <hr>
+
+        <h4>Add a comment</h4>
+        <!-- <form action="" method="post">{% csrf_token %}
+            {{ form|crispy }}
+            <button class="btn btn-success ml-2" type="submit">Save</button>
+        </form> -->
+
+        <form action="" method="post">
+            {{form.as_p}}
+            {% csrf_token %}
+            <button type="submit">Save</button>
+        </form>
+        <p>TO DO LIST</p>
+            <ul>
+                <li class="Tl"><input type="text" name="" required="required" class="Title" placeholder="Enter Title"></li>
+                <li><input type="text" name="" required="required" placeholder="Enter List"> <button>+</button><button class="delete">D</button></li>
+                <li class="Tl"><input type="text" name="" required="required" class="Title" placeholder="Enter Title"></li>
+                <li><input type="text" name="" required="required" placeholder="Enter List"> <button>+</button><button class="delete">D</button></li>
+                <li class="Tl"><input type="text" name="" required="required" class="Title" placeholder="Enter Title"></li>
+                <li><input type="text" name="" required="required" placeholder="Enter List"> <button>+</button><button class="delete">D</button></li>
+                <li class="Tl"><input type="text" name="" required="required" class="Title" placeholder="Enter Title"></li>
+                <li ><input type="text" name="" required="required" placeholder="Enter List"> <button>+</button><button class="delete">D</button></li>
+                <li class="Tl"><input type="text" name="" required="required" class="Title" placeholder="Enter Title"></li>
+                <li><input type="text" name="" required="required" placeholder="Enter List"> <button>+</button><button class="delete">D</button></li>
+                <li class="Tl"><input type="text" name="" required="required" class="Title" placeholder="Enter Title"></li>
+                <li><input type="text" name="" required="required" placeholder="Enter List"><button>+</button> <button class="delete">D</button></li>
+            </ul>
+            <p><textarea name="NOTES" id="NOTES" cols="30" rows="10" placeholder="Notes:"></textarea></p>
+        </body>
+</html>

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}To-Do Lists{% endblock %}
+
+{% block content %}
+<h1>Todo App</h1>
+        <div class="todo-ctn">
+            <ol>
+                {% for todo in todos %}
+                <li>
+                    <h3 class="title">{{ todo.title }}</h3>
+                    <div class="todo-body">
+                        <p class="txt">{{ todo.body }}</p>
+                        <p>
+                            <a href="{% url 'todo_delete' todo.pk %}" class="delete">DEL</a>
+                        </p>
+                    </div>
+                </li>
+            <hr>
+            {% endfor %}
+            </ol>
+            <form action="" method="post">
+                {{form.as_p}}
+                {% csrf_token %}
+                <button type="submit">+</button>
+            </form>
+        </div>
+        
+                
+        <ul>
+            
+
+            <li></li>
+                <p class="title"></p>
+                    
+        </ul>
+
+{% endblock content %}
